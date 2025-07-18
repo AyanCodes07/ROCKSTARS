@@ -6,80 +6,190 @@
   <link rel="stylesheet" href="style.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #0f0f0f;
-      color: #ffffff;
       margin: 0;
       padding: 0;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #000000;
+      overflow-x: hidden;
     }
-   header {
-      background-color: #111;
-      padding: 20px;
-      text-align: center;
+
+    /* PARTICLES BACKGROUND */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      z-index: -3;
+      overflow: hidden;
     }
-    h2{
-        color:hotpink;
+
+    .particles span {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+      animation: move 20s linear infinite;
+      opacity: 0.3;
     }
-   .logo-text {
-      font-size: 2.8em;
-      font-style: italic;
-      color: hotpink;
-      font-weight: bold;
+
+    @keyframes move {
+      from { transform: translateY(0); }
+      to { transform: translateY(-120vh); }
     }
+
+    /* LOGO BOX */
+    .r-logo {
+      width: 100px;
+      height: 100px;
+      background-color: #fbc531;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #fbc531;
+      position: relative;
+      margin: 40px auto 10px;
+      animation: pulse 2.5s infinite ease-in-out;
+      transition: transform 0.3s;
+    }
+
+    .r-logo:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 15px #fbc531; }
+      50% { box-shadow: 0 0 30px #fbc531; }
+    }
+
+    .r-logo .r-text {
+      font-size: 60px;
+      position: absolute;
+      top: 10px;
+      left: 28px;
+      color: #000;
+      font-family: 'Arial Black', sans-serif;
+    }
+
+    .r-logo .stars {
+      position: absolute;
+      bottom: 10px;
+      left: 13px;
+      font-size: 18px;
+      color: #000;
+      letter-spacing: 6px;
+    }
+
+    /* STICKY NAVBAR */
     nav {
-      background-color: #111;
-      padding: 10px;
+      position: sticky;
+      top: 0;
+      background-color: #000;
+      padding: 10px 0;
       text-align: center;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
     }
+
     nav a {
       color: white;
       text-decoration: none;
       padding: 12px 18px;
       font-weight: bold;
+      transition: color 0.3s;
     }
+
     nav a:hover {
       color: hotpink;
     }
+
     .description {
-      padding: 30px;
+      padding: 40px;
       text-align: justify;
       font-size: 18px;
-      line-height: 1.6;
-      max-width: 1200px;
+      line-height: 1.8;
+      max-width: 1100px;
       margin: auto;
     }
-    .logos {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin: 40px auto;
-      max-width: 1000px;
+
+    h2 {
+      color: hotpink;
     }
-    .logos img {
-      width: 120px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ff0080;
-      transition: transform 0.3s;
-    }
-    .logos img:hover {
-      transform: scale(1.1);
-    }
+
     footer {
       text-align: center;
       padding: 20px;
-      background-color: #1c1c1c;
-      color: #ccc;
+      background-color: #111;
+      color: #999;
+      font-size: 14px;
+      margin-top: 40px;
+      border-top: 1px solid #333;
+    }
+
+    /* FLOATING GAMING ICONS */
+    .gaming-icons {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .gaming-icons div {
+      position: absolute;
+      opacity: 0.08;
+      font-size: 30px;
+      animation: float 20s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); }
+      to { transform: translateY(-200vh); }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo-text">ROCKST★RS</div>
-  </header>
+  <!-- Particle Background -->
+  <div class="particles">
+    <script>
+      for (let i = 0; i < 60; i++) {
+        let star = document.createElement('span');
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDuration = (10 + Math.random() * 10) + 's';
+        document.currentScript.parentElement.appendChild(star);
+      }
+    </script>
+  </div>
 
+  <!-- Floating Gaming Icons -->
+  <div class="gaming-icons">
+    <script>
+      const icons = ['🎮', '🕹️', '💥', '🔥', '⚔️', '👾'];
+      for (let i = 0; i < 30; i++) {
+        const img = document.createElement('div');
+        img.innerText = icons[Math.floor(Math.random() * icons.length)];
+        img.style.left = Math.random() * 100 + '%';
+        img.style.top = Math.random() * 100 + '%';
+        img.style.fontSize = (20 + Math.random() * 30) + 'px';
+        img.style.opacity = '0.1';
+        img.style.animation = `float ${(10 + Math.random() * 15)}s linear infinite`;
+        document.currentScript.parentElement.appendChild(img);
+      }
+    </script>
+  </div>
+
+  <!-- Rockstar Logo -->
+  <div class="r-logo">
+    <div class="r-text">R</div>
+    <div class="stars">★ ★ ★</div>
+  </div>
+
+  <!-- Navigation Bar -->
   <nav>
     <a href="index.html">Home</a>
     <a href="gta5.html">GTA 5</a>
@@ -96,28 +206,73 @@
     <a href="feedback.html">Feedback</a>
   </nav>
 
+  <!-- Description Section -->
   <div class="description">
-    <h2>Welcome to <em>ROCKST★RS</em>!</h2>
-    <p>This website is a dedicated platform created to rank and review the most popular online multiplayer games across the globe. From action-packed battle royales like PUBG and Fortnite to strategic titles like Clash of Clans and Among Us, our goal is to bring together gamers and provide in-depth reviews, ratings, performance analysis, and esports career potential of each game.</p>
-    <p>Our mission is to provide an unbiased and gamer-driven perspective on these titles through a unique review system that allows user feedback, real-time download data, gameplay performance, and popularity ranking updates. Each game page features trailers, official download links, and overall star ratings — all in a clean, immersive interface. Whether you’re a casual gamer or an aspiring esports pro, ROCKST★RS is your trusted gaming review hub.</p>
+    <h2>🎮 Welcome to <em>ROCKST★RS</em> — Your Ultimate Online Multiplayer Gaming Hub</h2>
+    <p><strong>ROCKST★RS</strong> is the definitive destination for every passionate gamer who thrives on online multiplayer experiences. We are a comprehensive gaming platform dedicated to ranking, reviewing, and exploring the world's most popular online games — all in one immersive space.</p>
+
+    <p>Our mission is simple: Help players discover the best multiplayer titles, understand what makes each game special, and stay ahead of the curve with the latest in gaming news, updates, and competitive insights.</p>
+
+    <h3>🔥 What You’ll Find on ROCKST★RS:</h3>
+
+    <h4>🕹️ Game Reviews & Deep Dives</h4>
+    <ul>
+      <li>✅ A detailed game overview and storyline breakdown</li>
+      <li>🎞️ Official trailers embedded for real-time experience</li>
+      <li>⭐ User star ratings and reviews</li>
+      <li>🎮 Download/play links for all platforms</li>
+      <li>🎨 Game logos and high-res assets</li>
+    </ul>
+
+    <h4>📊 Rankings</h4>
+    <p>Our exclusive <strong>RANKINGS</strong> page compares each game based on:</p>
+    <ul>
+      <li>Global downloads & player base</li>
+      <li>Gameplay performance & optimization</li>
+      <li>Esports career potential & tournament activity</li>
+      <li>Active user stats and version updates</li>
+    </ul>
+    <p>Each title is ranked with visual elements and logos, keeping everything clear, fair, and constantly updated.</p>
+
+    <h4>🛒 Game Store</h4>
+    <p>Ready to jump into action? Our <strong>STORE</strong> section links you directly to trusted download sources for all ranked games. Whether you're on PC, console, or mobile — we've got you covered.</p>
+
+    <h4>📰 Gaming Newswire</h4>
+    <p>Stay informed with our <strong>NEWSWIRE</strong>, a live-feed section offering the latest in:</p>
+    <ul>
+      <li>Game updates and patch notes</li>
+      <li>New release announcements</li>
+      <li>Esports tournaments and league schedules</li>
+      <li>Developer insights and community highlights</li>
+    </ul>
+    <p>We help you stay ahead in the rapidly evolving world of multiplayer gaming.</p>
+
+    <h4>👾 Why Choose ROCKST★RS?</h4>
+    <ul>
+      <li>💡 Curated by passionate gamers, for gamers</li>
+      <li>📈 Data-driven rankings and analysis</li>
+      <li>🌐 Seamless integration of visuals, reviews, and gameplay media</li>
+      <li>🛠️ Constantly updated with the latest releases and features</li>
+      <li>🧠 Ideal for both casual players and competitive pros</li>
+    </ul>
+
+    <p>Whether you're looking to explore new titles, compare the best games of the moment, or just want an honest review before downloading — <strong>ROCKST★RS</strong> is your go-to hub.</p>
+
+    <p>🟣 <strong>Join the Community. Rate your favorite games. Discover new legends.</strong> Only on <strong>ROCKST★RS</strong>.<br>Your multiplayer gaming universe — reviewed, ranked, and reimagined.</p>
   </div>
 
-  <div class="logos">
-    <img src="https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png" alt="GTA 5">
-    <img src="Images/pubg.webp" alt="PUBG">
-    <img src="Images/COC2.webp" alt="Clash of Clans">
-    <img src="Images/among us.webp" alt="Among Us">
-    <img src="Images/fortnite.webp" alt="Fortnite">
-    <img src="Images/valorant.png" alt="Valorant">
-    <img src="Images/cod.webp" alt="COD">
-    <img src="Images/APEX.jpg" alt="Apex Legends">
-    <img src="Images/freefire.webp" alt="Free Fire">
-    <img src="Images/minecraft.webp" alt="Minecraft">
-  </div>
-
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 ROCKST★RS Gaming Reviews. All rights reserved.</p>
+    © 2025 ROCKST★RS. All Rights Reserved. Designed by Ayan Ansari.
   </footer>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
