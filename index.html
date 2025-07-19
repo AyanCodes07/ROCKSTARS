@@ -2,19 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ROCKST★RS - Explore reviews, ratings, and rankings of the best online multiplayer games. Stay updated with the latest gaming news.">
+  <meta name="keywords" content="multiplayer games, game reviews, rankings, esports, gaming news">
+  <meta name="author" content="Ayan Ansari">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>ROCKST★RS - Game Review Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
     body {
       margin: 0;
       padding: 0;
       color: #ffffff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Outfit', sans-serif;
       background: #000000;
       overflow-x: hidden;
     }
 
-    /* PARTICLES BACKGROUND */
     .particles {
       position: fixed;
       top: 0;
@@ -41,15 +46,14 @@
       to { transform: translateY(-120vh); }
     }
 
-    /* LOGO BOX */
     .r-logo {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       background-color: #fbc531;
       border-radius: 15px;
       box-shadow: 0 0 20px #fbc531;
       position: relative;
-      margin: 40px auto 10px;
+      margin: 30px auto 10px;
       animation: pulse 2.5s infinite ease-in-out;
       transition: transform 0.3s;
     }
@@ -64,24 +68,23 @@
     }
 
     .r-logo .r-text {
-      font-size: 60px;
+      font-size: 48px;
       position: absolute;
-      top: 10px;
-      left: 28px;
+      top: 6px;
+      left: 20px;
       color: #000;
-      font-family: 'Arial Black', sans-serif;
+      font-weight: 800;
     }
 
     .r-logo .stars {
       position: absolute;
-      bottom: 10px;
-      left: 13px;
-      font-size: 18px;
+      bottom: 8px;
+      left: 10px;
+      font-size: 16px;
       color: #000;
       letter-spacing: 6px;
     }
 
-    /* STICKY NAVBAR */
     nav {
       position: sticky;
       top: 0;
@@ -95,17 +98,19 @@
     nav a {
       color: white;
       text-decoration: none;
-      padding: 12px 18px;
-      font-weight: bold;
+      padding: 12px 16px;
+      font-weight: 600;
+      font-size: 16px;
+      display: inline-block;
       transition: color 0.3s;
     }
 
     nav a:hover {
-      color: hotpink;
+      color: #fbc531;
     }
 
     .description {
-      padding: 40px;
+      padding: 40px 20px;
       text-align: justify;
       font-size: 18px;
       line-height: 1.8;
@@ -113,8 +118,8 @@
       margin: auto;
     }
 
-    h2 {
-      color: hotpink;
+    h2, h3, h4 {
+      color: #fbc531;
     }
 
     footer {
@@ -127,7 +132,6 @@
       border-top: 1px solid #333;
     }
 
-    /* FLOATING GAMING ICONS */
     .gaming-icons {
       position: fixed;
       top: 0;
@@ -149,11 +153,27 @@
       from { transform: translateY(0); }
       to { transform: translateY(-200vh); }
     }
+
+    /* Scroll to Top Button */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #fbc531;
+      border: none;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      display: none;
+      z-index: 20;
+      box-shadow: 0 0 10px #fbc531;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Particle Background -->
   <div class="particles">
     <script>
       for (let i = 0; i < 60; i++) {
@@ -166,7 +186,6 @@
     </script>
   </div>
 
-  <!-- Floating Gaming Icons -->
   <div class="gaming-icons">
     <script>
       const icons = ['🎮', '🕹️', '💥', '🔥', '⚔️', '👾'];
@@ -176,20 +195,17 @@
         img.style.left = Math.random() * 100 + '%';
         img.style.top = Math.random() * 100 + '%';
         img.style.fontSize = (20 + Math.random() * 30) + 'px';
-        img.style.opacity = '0.1';
         img.style.animation = `float ${(10 + Math.random() * 15)}s linear infinite`;
         document.currentScript.parentElement.appendChild(img);
       }
     </script>
   </div>
 
-  <!-- Rockstar Logo -->
   <div class="r-logo">
     <div class="r-text">R</div>
     <div class="stars">★ ★ ★</div>
   </div>
 
-  <!-- Navigation Bar -->
   <nav>
     <a href="index.html">Home</a>
     <a href="gta5.html">GTA 5</a>
@@ -206,7 +222,7 @@
     <a href="feedback.html">Feedback</a>
   </nav>
 
-  <!-- Description Section -->
+ <!-- Description Section -->
   <div class="description">
     <h2>🎮 Welcome to <em>ROCKST★RS</em> — Your Ultimate Online Multiplayer Gaming Hub</h2>
     <p><strong>ROCKST★RS</strong> is the definitive destination for every passionate gamer who thrives on online multiplayer experiences. We are a comprehensive gaming platform dedicated to ranking, reviewing, and exploring the world's most popular online games — all in one immersive space.</p>
@@ -261,15 +277,21 @@
     <p>🟣 <strong>Join the Community. Rate your favorite games. Discover new legends.</strong> Only on <strong>ROCKST★RS</strong>.<br>Your multiplayer gaming universe — reviewed, ranked, and reimagined.</p>
   </div>
 
-  <!-- Footer -->
   <footer>
     © 2025 ROCKST★RS. All Rights Reserved. Designed by Ayan Ansari.
   </footer>
 
+  <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Top</button>
+
+  <script>
+    const btn = document.getElementById('scrollTopBtn');
+    window.onscroll = () => {
+      btn.style.display = window.scrollY > 200 ? 'block' : 'none';
+    };
+  </script>
+
 </body>
 </html>
-
-
 
 
 
