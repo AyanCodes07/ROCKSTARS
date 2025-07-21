@@ -6,12 +6,40 @@
   <link rel="stylesheet" href="style.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #fff;
       margin: 0;
       padding: 0;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #000000;
+      overflow-x: hidden;
     }
+        /* PARTICLES BACKGROUND */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      z-index: -3;
+      overflow: hidden;
+    }
+
+    .particles span {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+      animation: move 20s linear infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes move {
+      from { transform: translateY(0); }
+      to { transform: translateY(-120vh); }
+    }
+
     header {
       background-color: #111;
       padding: 20px;
@@ -23,17 +51,39 @@
       color: hotpink;
       font-weight: bold;
     }
-   nav {
-      background-color: #111;
-      padding: 10px;
-      text-align: center;
+    .r-logo {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       margin-top: 20px;
     }
+
+    .r-logo:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 15px #fbc531; }
+      50% { box-shadow: 0 0 30px #fbc531; }
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #000;
+      padding: 10px 0;
+      text-align: center;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    }
+
     nav a {
       color: white;
       text-decoration: none;
       padding: 12px 18px;
       font-weight: bold;
+      transition: color 0.3s;
     }
+
     nav a:hover {
       color: hotpink;
     }
@@ -50,7 +100,7 @@
     .section-title {
       font-size: 2em;
       margin-top: 20px;
-      color: #ffcc00;
+      color: #ff8000;
     }
     .button {
       display: inline-block;
@@ -82,13 +132,30 @@
       margin-bottom: 20px;
       color: #ff4da6;
     }
+    p {
+      font-size: 1.1em;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo-text">ROCKST★RS</div>
-  </header>
+  <!-- Particle Background -->
+  <div class="particles">
+    <script>
+      for (let i = 0; i < 60; i++) {
+        let star = document.createElement('span');
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDuration = (10 + Math.random() * 10) + 's';
+        document.currentScript.parentElement.appendChild(star);
+      }
+    </script>
+  </div>
+   <div class="r-logo">
+    <img src="Images/rockstar.jpg" widht = "100" height = "100" alt="Company Logo">
+  </div>
 
   <nav>
     <a href="index.html">Home</a>
@@ -113,7 +180,7 @@
 
     <h2 class="section-title">Game Overview</h2>
     <p>
-      Clash of Clans (CoC) is a massively popular mobile strategy game developed by Supercell. It’s set in a fantasy-themed world where players build villages, train armies, and raid other players for loot and glory. With a vibrant community, frequent updates, and intense war features, CoC has become a cult classic in mobile gaming since its release in 2012.
+      <strong>Clash of Clans (CoC)</strong> is a massively popular mobile strategy game developed by Supercell. It’s set in a fantasy-themed world where players build villages, train armies, and raid other players for loot and glory. With a vibrant community, frequent updates, and intense war features, CoC has become a cult classic in mobile gaming since its release in 2012.
     </p>
 
     <h2 class="section-title">Storyline</h2>
